@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobile_computing_hw1"
+    namespace = "com.example.mobile_computing"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.mobile_computing_hw1"
+        applicationId = "com.example.mobile_computing"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

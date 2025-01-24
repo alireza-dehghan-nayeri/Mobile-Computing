@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Mobile_Computing_HW1"
+rootProject.name = "Mobile_Computing"
 include(":app")

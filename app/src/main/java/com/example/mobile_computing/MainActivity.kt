@@ -1,4 +1,4 @@
-package com.example.mobile_computing_hw1
+package com.example.mobile_computing
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -31,14 +31,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.mobile_computing_hw1.ui.theme.Mobile_Computing_HW1Theme
+import com.example.mobile_computing.ui.theme.Mobile_ComputingTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Mobile_Computing_HW1Theme {
+            Mobile_ComputingTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     JDMCars(
                         cars = SampleData.carSample,
@@ -142,7 +142,7 @@ private fun CarCardPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun JDMCarsPreview() {
-    Mobile_Computing_HW1Theme {
+    Mobile_ComputingTheme {
         JDMCars(SampleData.carSample)
     }
 }

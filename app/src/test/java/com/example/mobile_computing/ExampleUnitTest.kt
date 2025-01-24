@@ -1,4 +1,4 @@
-package com.example.mobile_computing_hw1
+package com.example.mobile_computing
 
 import org.junit.Test
 

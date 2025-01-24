@@ -1,4 +1,4 @@
-package com.example.mobile_computing_hw1
+package com.example.mobile_computing
 
 object SampleData {
     // Sample JDM car data
