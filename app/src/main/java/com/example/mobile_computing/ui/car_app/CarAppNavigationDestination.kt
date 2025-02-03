@@ -1,4 +1,4 @@
-package com.example.mobile_computing.ui
+package com.example.mobile_computing.ui.car_app
 
 import androidx.navigation.NavType
 import androidx.navigation.navArgument

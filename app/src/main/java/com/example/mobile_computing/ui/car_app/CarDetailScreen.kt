@@ -1,4 +1,4 @@
-package com.example.mobile_computing.ui
+package com.example.mobile_computing.ui.car_app
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.mobile_computing.data.Car
+import com.example.mobile_computing.data.car_app.Car
 
 @Composable
 fun CarDetailScreen(onBackButtonClick: () -> Unit, car: Car, modifier: Modifier = Modifier) {

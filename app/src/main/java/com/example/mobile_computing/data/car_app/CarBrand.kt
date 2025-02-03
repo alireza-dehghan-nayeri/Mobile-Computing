@@ -1,4 +1,4 @@
-package com.example.mobile_computing.data
+package com.example.mobile_computing.data.car_app
 
 import androidx.compose.runtime.Immutable
 

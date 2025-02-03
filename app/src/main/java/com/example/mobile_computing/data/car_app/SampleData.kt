@@ -1,4 +1,4 @@
-package com.example.mobile_computing.data
+package com.example.mobile_computing.data.car_app
 
 import com.example.mobile_computing.R
 
