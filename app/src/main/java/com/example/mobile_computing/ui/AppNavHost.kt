@@ -1,15 +1,15 @@
-package com.example.mobile_computing.ui.car_app
+package com.example.mobile_computing.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.mobile_computing.data.car_app.SampleData
+import com.example.mobile_computing.data.SampleData
 
 
 @Composable
-fun CarAppNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
+fun AppNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(navController = navController, startDestination = Home.route, modifier = modifier) {
 

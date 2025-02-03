@@ -2,8 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -30,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -61,21 +59,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.coil.compose)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
-
-    implementation(libs.androidx.datastore.preferences)
-
-    implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
-}
-
-kapt {
-    correctErrorTypes = true
 }

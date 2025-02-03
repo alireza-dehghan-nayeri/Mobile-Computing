@@ -1,4 +1,4 @@
-package com.example.mobile_computing.ui.car_app
+package com.example.mobile_computing.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -25,7 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.mobile_computing.data.car_app.Car
+import com.example.mobile_computing.data.Car
 
 @Composable
 fun CarListScreen(onCarClick: (Car) -> Unit, cars: List<Car>, modifier: Modifier = Modifier) {

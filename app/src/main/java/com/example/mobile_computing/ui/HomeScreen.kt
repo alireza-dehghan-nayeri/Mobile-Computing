@@ -1,4 +1,4 @@
-package com.example.mobile_computing.ui.car_app
+package com.example.mobile_computing.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -16,7 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.mobile_computing.data.car_app.CarBrand
+import com.example.mobile_computing.data.CarBrand
 
 @Composable
 fun HomeScreen(
