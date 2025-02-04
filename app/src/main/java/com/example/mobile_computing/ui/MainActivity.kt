@@ -18,19 +18,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            CarApp()
+            MyApp()
         }
     }
 }
 
 @Composable
-fun CarApp(modifier: Modifier = Modifier) {
+fun MyApp(modifier: Modifier = Modifier) {
     Mobile_ComputingTheme {
         val navController = rememberNavController()
         Scaffold { innerPadding ->
             AppNavHost(navController, modifier.padding(innerPadding))
         }
-
     }
 }
 

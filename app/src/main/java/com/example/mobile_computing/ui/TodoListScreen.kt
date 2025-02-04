@@ -1,0 +1,98 @@
+package com.example.mobile_computing.ui
+
+import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.mobile_computing.data.TodoEntity
+
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun TodoListScreen(
+    onAddTodoClicked: () -> Unit,
+    onEditTodoClicked: (Int) -> Unit,
+    viewModel: TodoViewModel = hiltViewModel()
+) {
+    val todos by viewModel.todos.collectAsState()
+
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = onAddTodoClicked) {
+                Icon(Icons.Default.Add, contentDescription = "Add Todo")
+            }
+        }
+    ) {
+        LazyColumn {
+            items(todos) { todo ->
+                TodoItem(
+                    todo,
+                    onDelete = { viewModel.deleteTodo(todo) },
+                    onEdit = {
+                        onEditTodoClicked(it)
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun TodoItem(todo: TodoEntity, onDelete: () -> Unit, onEdit: (Int) -> Unit) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Row(modifier = Modifier.weight(1f)) {
+                TodoImage()
+                Column {
+                    Text(todo.title, fontWeight = FontWeight.Bold)
+                    Text(todo.description, style = MaterialTheme.typography.bodyMedium)
+                }
+            }
+            IconButton(onClick = {
+                onEdit(todo.id)
+            }) {
+                Icon(Icons.Default.Edit, contentDescription = "Edit")
+            }
+            IconButton(onClick = onDelete) {
+                Icon(Icons.Default.Delete, contentDescription = "Delete")
+            }
+        }
+    }
+}
+
+@Composable
+fun TodoImage() {
+
+
+}

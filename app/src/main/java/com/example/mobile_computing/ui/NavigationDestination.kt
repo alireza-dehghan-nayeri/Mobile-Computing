@@ -7,25 +7,19 @@ sealed interface NavigationDestination {
     val route: String
 }
 
-data object Home : NavigationDestination {
-    override val route = "home"
+data object TodoList : NavigationDestination {
+    override val route = "todo_list"
 }
 
-data object CarList : NavigationDestination {
-    override val route = "car_list"
-    const val brandIdArg = "brand_id"
-    val routeWithArgs = "$route/{$brandIdArg}"
-    val arguments = listOf(
-        navArgument(brandIdArg) { type = NavType.StringType }
-    )
-
+data object AddTodo : NavigationDestination {
+    override val route = "add_todo"
 }
 
-data object CarDetail : NavigationDestination {
-    override val route = "car_detail"
-    const val carIdArg = "car_id"
-    val routeWithArgs = "$route/{$carIdArg}"
+data object EditTodo : NavigationDestination {
+    override val route = "edit_todo"
+    const val todoIdArg = "todo_id"
+    val routeWithArgs = "$route/{$todoIdArg}"
     val arguments = listOf(
-        navArgument(carIdArg) { type = NavType.StringType }
+        navArgument(todoIdArg) { type = NavType.IntType }
     )
 }
