@@ -3,10 +3,14 @@ package com.example.mobile_computing.ui
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -24,9 +28,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
 import com.example.mobile_computing.data.TodoEntity
 
 
@@ -61,7 +68,11 @@ fun TodoListScreen(
 }
 
 @Composable
-fun TodoItem(todo: TodoEntity, onDelete: () -> Unit, onEdit: (Int) -> Unit) {
+fun TodoItem(
+    todo: TodoEntity,
+    onDelete: () -> Unit,
+    onEdit: (Int) -> Unit,
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -73,7 +84,10 @@ fun TodoItem(todo: TodoEntity, onDelete: () -> Unit, onEdit: (Int) -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(modifier = Modifier.weight(1f)) {
-                TodoImage()
+                TodoImage(
+                    imageUrl = todo.imageUrl,
+                )
+                Spacer(modifier = Modifier.width(16.dp))
                 Column {
                     Text(todo.title, fontWeight = FontWeight.Bold)
                     Text(todo.description, style = MaterialTheme.typography.bodyMedium)
@@ -92,7 +106,17 @@ fun TodoItem(todo: TodoEntity, onDelete: () -> Unit, onEdit: (Int) -> Unit) {
 }
 
 @Composable
-fun TodoImage() {
-
-
+fun TodoImage(
+    imageUrl: String?,
+) {
+    if (!imageUrl.isNullOrEmpty()) {
+        AsyncImage(
+            model = imageUrl,
+            contentDescription = "Image",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+        )
+    }
 }

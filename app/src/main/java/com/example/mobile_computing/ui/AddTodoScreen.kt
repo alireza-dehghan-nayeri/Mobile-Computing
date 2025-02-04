@@ -24,22 +24,52 @@ import com.example.mobile_computing.data.TodoEntity
 fun AddTodoScreen(onSaveClicked: () -> Unit, viewModel: TodoViewModel = hiltViewModel()) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
+    var imageUrl by remember { mutableStateOf("") }
+    var loadImage by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(16.dp)) {
         OutlinedTextField(
             value = title,
             onValueChange = { title = it },
             label = { Text("Title") })
+
         Spacer(modifier = Modifier.height(8.dp))
+
         OutlinedTextField(
             value = description,
             onValueChange = { description = it },
             label = { Text("Description") })
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
+            value = imageUrl,
+            onValueChange = {
+                imageUrl = it
+                loadImage = false
+            },
+            label = { Text("Image Url") })
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (loadImage) {
+            TodoImage(imageUrl)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = {
+                loadImage = true
+            }
+        ) {
+            Text("Load Image")
+        }
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             onClick = {
-                if (title.isNotBlank() && description.isNotBlank()) {
-                    viewModel.addTodo(TodoEntity(title = title, description = description))
+                if (title.isNotBlank() && description.isNotBlank() ) {
+                    viewModel.addTodo(TodoEntity(title = title, description = description, imageUrl = imageUrl))
                     onSaveClicked()
                 }
             },

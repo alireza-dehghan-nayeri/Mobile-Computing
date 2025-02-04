@@ -10,7 +10,5 @@ data class TodoEntity(
     val title: String,
     val description: String,
     val isCompleted: Boolean = false,
-    val useImgUrl: Boolean = false,
     val imageUrl: String? = null,
-    val imageFileName: String? = null
 )
