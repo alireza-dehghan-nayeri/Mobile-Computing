@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mobile_computing"
-        minSdk = 24
+        minSdk = 31
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -77,6 +77,12 @@ dependencies {
     implementation(libs.coil.compose)
     // Permission Accompanist
     implementation(libs.accompanist.permissions)
+    // Splash Screen
+    implementation(libs.androidx.splashscreen)
+    //CameraX
+    implementation(libs.camera.core)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

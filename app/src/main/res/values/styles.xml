@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.Splash" parent="Theme.Mobile_Computing">
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/todo_icon</item>
+        <item name="android:splashScreenTheme">@style/Theme.Mobile_Computing</item>
+    </style>
+
+</resources>
